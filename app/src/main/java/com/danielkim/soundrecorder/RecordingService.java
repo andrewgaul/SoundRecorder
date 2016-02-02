@@ -85,6 +85,9 @@ public class RecordingService extends Service {
         mRecorder.setOutputFile(mFilePath);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         mRecorder.setAudioChannels(1);
+        // the following 2 options are taken from the Soundcloud android app
+        mRecorder.setAudioEncodingBitRate(96000);
+        mRecorder.setAudioSamplingRate(44100);
 
         try {
             mRecorder.prepare();
