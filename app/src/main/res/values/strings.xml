@@ -40,6 +40,7 @@
     <string name="resume_recording_button">Resume</string>
     <string name="record_prompt">Tap the button to start recording</string>
     <string name="record_in_progress">Recording</string>
+    <string name="storage_dir">SoundRecorder</string>
 
     <string name="send_to">Send to</string>
 
