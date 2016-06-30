@@ -48,7 +48,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         super();
         mContext = context;
         mDatabase = new DBHelper(mContext);
-        mDatabase.setOnDatabaseChangedListener(this);
+        DBHelper.setOnDatabaseChangedListener(this);
         llm = linearLayoutManager;
     }
 
@@ -108,6 +108,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                 builder.setTitle(mContext.getString(R.string.dialog_title_options));
                 builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
                     public void onClick(DialogInterface dialog, int item) {
                         if (item == 0) {
                             shareFileDialog(holder.getPosition());
@@ -121,6 +122,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                 builder.setCancelable(true);
                 builder.setNegativeButton(mContext.getString(R.string.dialog_action_cancel),
                         new DialogInterface.OnClickListener() {
+                            @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
                             }
@@ -261,6 +263,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         renameFileBuilder.setCancelable(true);
         renameFileBuilder.setPositiveButton(mContext.getString(R.string.dialog_action_ok),
                 new DialogInterface.OnClickListener() {
+                    @Override
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             String value = input.getText().toString().trim() + ".mp4";
@@ -293,6 +296,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         confirmDelete.setCancelable(true);
         confirmDelete.setPositiveButton(mContext.getString(R.string.dialog_action_yes),
                 new DialogInterface.OnClickListener() {
+                    @Override
                     public void onClick(DialogInterface dialog, int id) {
                         try {
                             //remove item from database, recyclerview, and storage

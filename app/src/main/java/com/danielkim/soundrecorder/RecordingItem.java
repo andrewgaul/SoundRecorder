@@ -66,10 +66,12 @@ public class RecordingItem implements Parcelable {
     }
 
     public static final Parcelable.Creator<RecordingItem> CREATOR = new Parcelable.Creator<RecordingItem>() {
+        @Override
         public RecordingItem createFromParcel(Parcel in) {
             return new RecordingItem(in);
         }
 
+        @Override
         public RecordingItem[] newArray(int size) {
             return new RecordingItem[size];
         }
