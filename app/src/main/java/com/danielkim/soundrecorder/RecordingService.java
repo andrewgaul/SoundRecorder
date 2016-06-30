@@ -18,6 +18,7 @@ import com.danielkim.soundrecorder.activities.MainActivity;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -99,14 +100,11 @@ public class RecordingService extends Service {
     }
 
     public void setFileNameAndPath(){
-        int count = 0;
+        SimpleDateFormat mFileFormat = new SimpleDateFormat("yyyy-MM-dd kk.mm.ss", Locale.getDefault());
         File f;
 
         do{
-            count++;
-
-            mFileName = getString(R.string.default_file_name)
-                    + " #" + (mDatabase.getCount() + count) + ".mp4";
+            mFileName = mFileFormat.format(new Date()) + ".mp4";
             mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             mFilePath += "/SoundRecorder/" + mFileName;
 
