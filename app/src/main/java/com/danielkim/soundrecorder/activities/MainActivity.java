@@ -35,8 +35,8 @@ public class MainActivity extends ActionBarActivity{
         tabs.setViewPager(pager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
         if (toolbar != null) {
+            toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
             setSupportActionBar(toolbar);
         }
     }
